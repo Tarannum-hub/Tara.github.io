@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tara's Web</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../Portfolio_1/style.css">
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+<script type="text/javascript"> (function(){emailjs.init("YIxIyRD6T0Ti_gxHu");})();
+</script>
+
+</head>
+<body>
+    <header>
+    <div class="header-container">
+    <img src="../Portfolio_1/assets/images/taralogo.PNG" alt="Tara's Logo" 
+    width="auto" height="150px" style="vertical-align: auto">
+    <nav>
+        <span id="toggleTexNav" onclick="toggleContent()" style="cursor: pointer;">
+        <a>About</a> </span>
+        <a>Skills</a>
+        <a>Projects</a>
+        <a href="#Contact">Contact</a>
+    </nav>
+    </div>
+    </header>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>Currently completing Just IT Software Development Skills course. 
+        Passionate about coding and building solutions...
+    <span id="toggleTextAbout" onclick="toggleContent()" style="cursor: pointer; 
+        text-decoration: underline; font-size: 12px;">
+            <a id="aboutMe"> Click here for detail </a>
+        </span></p>
+    <div id="extraContent" style="display: none;">
+    <p>I am Tarannum Mahmood, an IT professional with a strong background 
+        in systems administration, support, and project coordination. 
+        I am actively pursuing opportunities in software development 
+        and currently building a full-stack foundation with HTML, 
+        JavaScript, SQL, GitHub, and Python. My goal is to develop smart 
+        applications and deliver impactful reporting through 
+        Business Objects and Power BI. I have successfully delivered 
+        high-impact projects across legal, property, and hospitality 
+        sectors—always with a focus on efficiency, user satisfaction, 
+        and team development.</p>
+    
+</div>
+
+<h2>Skills :</h2>
+
+    <ul>
+    <li><strong>Web Development</strong></li>
+        <ul>     
+            <li>HyperText Markup Language (HTML)</li>
+            <li>Cascading Style Sheets (CSS)</li>
+            <li>JavaScript (JS)</li>
+        </ul>
+    <li><strong>Backend &amp; Database</strong></li>
+        <ul>
+            <li>Database Design (SQL)</li>
+            <li>C# Development</li>     
+        </ul>
+    <li><strong>Business Intelligence</strong></li>
+        <ul>
+            <li>Business Objects (Universe Design / Reports)</li>
+            <li>Pentaho Reports(Universe Design / Reports)</li>
+        </ul>
+    <li><strong>IT Support &amp; Infrastructure</strong>
+        <ul>
+            <li>IT Support</li>
+            <li>File/Exchange Server Management</li>
+        </ul>
+    <li>
+        <strong>System &amp; Project Management</strong>
+        <ul>
+            <li>System Development Lifecycle (SDLC)</li>
+            <li>Project Coordination</li>
+        </ul>
+    <li>
+        <strong>Professional Standards</strong>
+        <ul>
+            <li>Provide support across all level(Users to Executives)</li>
+            <li>Maintain GitHub account</li>
+            <li>Document processes and configurations for audit readiness.</li>
+        </ul>
+    </li>
+</ul>
+
+
+   <!-- <ul>     
+    <li>HyperText Markup Language (.html)</li>
+    <li>Cascading Style Sheets(.css)</li>
+    <li>JavaScript(.js)</li>
+    <li>Database Design (SQL)</li>
+    <li>C# Development</li>
+    <li>Business Object(Universe Design/reports)</li>
+    <li>It Support</li>
+    <li>System Development Lifecycle</li>
+    <li>Project Coordination</li>
+    <li>File/Exchange Server Mangement</li>
+    </ul>-->
+</section>
+
+<section id="projects">
+    <h2>Java Workbench :</h2>
+    <div class="project-card" style="display: flex; gap: 20px; flex-wrap:;">
+        <!--tip calculator-box-->
+    <div class="calculator-box" style="box-shadow: 0 0 15px rgba(0,0,0,0,3);
+    padding: 15px; width: 300px">
+    <h2>Tip Calculator</h2>
+    
+    <label for="billInput">Enter Bill Amount (£):</label>
+    <input type="number" id="billInput" placeholder="e.g.50">
+    <br><br>
+    
+    <label for="tipInput">Enter Tip Percentage(%):</label>
+    <input type="number" id="tipInput" placeholder="e.g. 15">
+    <br><br>
+
+    <button type="submit" onclick="handleCalculate()">Calculate Tip</button>
+    <h2>Results:</h2>
+    
+    <p id="billDisplay"></p>
+    <p id="tipDisplay"></p>
+    <p id="totalDisplay"></p>
+    <!--<script defer src="../Tip_Calculator/script.js"></script>-->
+    
+<!-- Modal Trigger -->
+        <button onclick="captureCode('tipJS', 'tipModal', 'tipImage')">Show JS Code</button>
+    </div>
+
+    <!-- Hidden JS Code Block -->
+    <div id="tipJS" class="code-box">
+<pre>
+// Tip Calculator JS
+function handleCalculate() {
+    function calculateTip(billAmount, chosenTip){
+    const percentageRates = {
+        ten: 10,
+        fifteen: 15,
+        twenty: 20,
+};
+    let chosenPercentage = percentageRates[chosenTip] || chosenTip;
+    const tipAmount = (billAmount*chosenPercentage)/100;
+    return tipAmount;
+}
+    function handleCalculate(){
+        const billAmount = parseFloat(document.getElementById("billInput").value);
+        const tipPercent = parseFloat(document.getElementById("tipInput").value);
+
+        if (isNaN(billAmount) || isNaN(tipPercent)){
+            alert("Please enter valid numbers for both fields.");
+            return;
+        }
+        const tipAmount = calculateTip(billAmount, tipPercent);
+        const totalBill = billAmount + tipAmount;
+
+        document.getElementById("billDisplay").textContent = `User Inputs Bill: £${billAmount.toFixed(2)}`;
+        document.getElementById("tipDisplay").textContent = `User Select Tip Percent: ${tipPercent}%`;
+        document.getElementById("totalDisplay").textContent = `Total bill including tip: £${totalBill.toFixed(2)}`;
+} 
+</pre>
+    </div>
+    <!-- Modal -->
+    <div id="tipModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('tipModal')">&times;</span>
+            <h2>JavaScript Code Screenshot</h2>
+            <img id="tipImage" alt="JS Code Screenshot">
+            <br>
+            <button class="download-btn" onclick="downloadImage('tipImage', 'tip-js-code.png')">Download Image</button>
+        </div>
+    </div>
+        <!--modal-->
+        <!--tip calculator-box-->
+
+        <!--atm machine-->
+        <div class="atm-box">
+    <h2>ATM Machine</h2>
+
+    <label for="pinInput">Enter PIN:</label>
+    <input type="number" id="pinInput" placeholder="e.g. enter 4 digit">
+    <br><br>
+    
+    <label for="withdrawInput">Withdrawal Amount (£):</label>
+    <input type="number" id="withdrawInput" placeholder="e.g.40">
+    <br><br>
+    
+    <button onclick="processATM()">Withdraw</button>
+    <h2>Results:</h2>
+    
+    <p id="resultDisplay"></p>
+
+   <!--<script defer src="../Tip_Calculator/script.js"></script>-->
+    
+    </div>
+        <!--atm machine-->
+    </div>
+</section>
+
+<div class="more-Projects">
+<p id="moreProjects" style="text-align: right; margin: 0%; 
+padding-right: 40px;">
+        <a href="../Portfolio_1/moreProjects.html">
+    Explore SQL &amp; more ...
+    </a>
+    </p>
+</div>
+
+
+<section id="Contact">
+    <h2>Contact Us :</h2>
+    <div class="project-card">
+        
+    <form id="contact-form">
+        <input type="hidden" id="time" value="time" placeholder="e.g. time">
+
+        <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required>
+    </div>
+
+    <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+    </div>
+
+    <div class="form-group">
+        <label for="message">Your message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" placeholder="Type your message here ..."></textarea><br>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" id="submitBtn" onclick="sendEmail()">Send Email</button>
+    </div>
+    
+</form>
+</div>
+</section>
+
+<footer id="profile-links">
+
+    <a>&copy; 2025 | TM. All rights reserved.</a>
+<div class="social-strip">
+<div class="social-icons">
+    <a href=" https://github.com/Tarannum-hub" name="github" target="_blank">
+            <i class="fab fa-github"></i></a>
+
+    <a href="https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3BH87RmwHBRIqGOuWRHLSd1w%3D%3D" 
+    name="linkedin" target="_blank">
+            <i class="fab fa-linkedin"></i></a>
+
+    <a href="https://cdnjs.com/about" name="cdnjs" target="_blank">
+            <i class="fas fa-cloud"></i></a>
+
+    </div>
+</div>
+</footer>
+    <script defer src="../Portfolio_1/script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>
